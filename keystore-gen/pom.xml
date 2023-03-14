@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>jaxws-cert-auth-demo</artifactId>
+		<groupId>org.example</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>keystore-gen</artifactId>
+	<packaging>jar</packaging>
+	<name>keystore-gen</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>keytool-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>keypair-generator</id>
+						<goals>
+							<goal>generateKeyPair</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<keystore>src/main/resources/server.jks</keystore>
+					<storepass>changeit</storepass>
+					<keypass>changeit</keypass>
+					<alias>dummyServer</alias>
+					<dname>cn=www.orbitalzero.com, ou=IT, L=Mexico, ST=CDMX, o=OrbitalZero, c=MX</dname>
+					<validity>100</validity>
+					<keyalg>RSA</keyalg>
+					<keysize>2048</keysize>
+					<storetype>PKCS12</storetype>
+					<exts>SAN=DNS:localhost</exts>
+					<skipIfExist>true</skipIfExist>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

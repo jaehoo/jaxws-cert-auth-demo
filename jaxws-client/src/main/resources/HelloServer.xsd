@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e.--><xs:schema version="1.0" targetNamespace="http://service.test.com/" xmlns:tns="http://service.test.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="greet" type="tns:greet"/>
+  <xs:element name="greetResponse" type="tns:greetResponse"/>
+  <xs:complexType name="greet">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="greetResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:message" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="message">
+    <xs:sequence>
+      <xs:element name="text" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
